@@ -58,7 +58,7 @@ jobs:
           kubectl create secret generic django-k8s-mnp-prod-env --from-env-file=mnpbsnl/.env.prod          
       - name: Update Deployment image
         run: |
-          kubectl set image deployment/mnp-k8s-deployment django-k8s-mnp=registry.digitalocean.com/sp-k8s/django-k8s-mnp:${GITHUB_SHA::7}-${GITHUB_RUN_ID::5}
+          kubectl set image deployment/mnp-k8s-deployment mnp-k8s=registry.digitalocean.com/sp-k8s/django-k8s-mnp:${GITHUB_SHA::7}-${GITHUB_RUN_ID::5}
       - name: Wait for rollout to finish
         run: |
           kubectl rollout status deployment/mnp-k8s-deployment
