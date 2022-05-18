@@ -4,7 +4,7 @@ from .models import Circle
 
 class CircleTestCase(TestCase):
     def setUp(self):
-        Circle.objects.create(title='Kolkata')
+        Circle.objects.create(name='Kolkata')
 
     def test_failure(self):
         qs = Circle.objects.all()
