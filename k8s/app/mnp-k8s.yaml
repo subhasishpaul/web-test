@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mnp-k8s-deployment
+  labels:
+    app: mnp-k8s-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mnp-k8s-deployment
+  template:
+    metadata:
+      labels:
+        app: mnp-k8s-deployment
+    spec:
+      containers:
+      - name: mnp-k8s
+        image: registry.digitalocean.com/sp-k8s/django-k8s-mnp:latest
+        imagePullPolicy: Always
+        envFrom:
+          - secretRef:
+              name: django-k8s-mnp-prod-env
+        env:
+          - name: PORT
+            value: "8003"
+        ports:
+        - containerPort: 8003
+      imagePullSecrets:
+        - name: sp-k8s   
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mnp-k8s-service
+spec:
+  type: LoadBalancer
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 8003
+  selector:
+    app: mnp-k8s-deployment
