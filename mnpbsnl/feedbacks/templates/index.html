@@ -1,28 +1,10 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+{% extends "base_generic.html" %}
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  {% load static %}
-
+{% block content %}
+{% load static %}
 <link rel="stylesheet" href="{% static 'css/w3.css' %}">
 
-  <script src="{% static 'jquery/js/jquery-3.4.1.min.js' %}"></script>
-  <script src="{% static 'jquery/js/bootstrap.min.js' %}"></script>
- 
-  <link rel="stylesheet" href="{% static 'css/style.css' %}" crossorigin="anonymous">
-
-  <link rel="stylesheet" href="{% static 'css/all.css' %}" crossorigin="anonymous">
-  <title>
-    Customer feedback portal
-  </title>
-   
-</head>
-
-
-  <body>
-    
+  
   <!-- Add a background color and large text to the whole page -->
   <div class="w3-sand w3-grayscale w3-medium">
   
@@ -59,8 +41,5 @@
   
   <!-- End page content -->
   </div>
-
-  </body>
-
-
-</html>
+  
+{% endblock %}
