@@ -5,7 +5,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  {% include 'feedbacks/includes/messages.html' %}
   {% load static %}
 
   <link rel="stylesheet" href="{% static 'css/w3.css' %}">
@@ -36,7 +35,7 @@
   <link rel="stylesheet" href="{% static 'css/all.css' %}" crossorigin="anonymous">
 
   <title>
-    {% block title %}SP feedback portal{% endblock %}
+    {% block title %}Customer feedback portal{% endblock %}
   </title>
   {% block head %} {% endblock %} 
 </head>
@@ -53,8 +52,9 @@
       <i class="fas fa-sliders-h" id="sidebar_btn"></i>
     </label>
     <div class="left_area">
-      <h3>MNP Feedback <span>Portal</span></h3>
+      <h3>Customer Feedback <span>Portal</span></h3>
     </div>
+    
   </header>
   <!--header area end-->
 
@@ -67,68 +67,41 @@
   <div class="sidebar">
     <a href="#"><i class="fa fa-home fa-fw" aria-hidden="true"></i><span>Home</span></a>
 
-    {% if user.has_usable_password %}
-    <a href="#"><i class="fas fa-lock" aria-hidden="true"></i><span>Change password</span></a>
-    {% endif %}
-    
+   
     <a href="#"><i class="fas fa-chart-line"></i><span>UPC report</span></a>    
     <a href="#"><i class="fas fa-chart-bar"></i><span>Feedback report</span></a>
     <br> <br>
     <a href="#"><font face="Calibri" color="#5C374C"><i class="fas fa-angle-double-down"></i><b><u><span style="font-size:14px font-family:'Arial narrow' color:red">Update Feedback</u>:</span></b></font></a>
+    
+    
+    <a href="#"><i class="fas fa-play-circle" aria-hidden="true"></i><span>By Circle</span></a>
+    <a href="#"><i class="fas fa-th" aria-hidden="true"></i><span>By SSA</span></a>
+    <a href="#"><i class="fas fa-mobile-alt" aria-hidden="true"></i><span>By MSISDN</span></a>
+    
   </div>
   <!--sidebar end-->
   {% endblock %}
 
-  <div class="content">
+<div class="content">
     <div class="card">
       <p>
         {% block content %}
         
         {% endblock %}      
-        
-      {% if user.is_authenticated %}
-      {% block pagination %}
-
-      {% load my_tags %}
-
-      {% if is_paginated %}
-      {% if page_obj.has_previous %}
-      <a href="?{% param_replace page=1 %}">First</a>
-      {% if page_obj.previous_page_number != 1 %} &nbsp;|&nbsp;
-      <a href="?{% param_replace page=page_obj.previous_page_number %}">Previous</a>
-      {% endif %}
-      {% endif %}
-
-      Page {{ page_obj.number }} of {{ paginator.num_pages }}
-
-      {% if page_obj.has_next %}
-      {% if page_obj.next_page_number != paginator.num_pages %}
-      <a href="?{% param_replace page=page_obj.next_page_number %}">Next</a>
-      {% endif %}&nbsp;|&nbsp;
-      <a href="?{% param_replace page=paginator.num_pages %}">Last</a>
-      {% endif %}
-
-      &nbsp;&nbsp;&nbsp;&nbsp;Records: {{ page_obj.start_index }}&mdash;{{ page_obj.end_index }}
-      {% endif %}
-
-
-      {% endblock %}
-      {% endif %}
-      
+     
       </p>
     
     </div>
   </div>
 
+  
   <div class="footer">
     <p><span style="font-family:'Trebuchet MS';">
-      Site developed by EZBC Billing <i class="fas fa-copyright"></i>2021.&nbsp;
+      Site developed by SP Technology <i class="fas fa-copyright"></i>2022.&nbsp;
     </span></p>
   </div>  
 
  
-
-
 </body>
 
 

@@ -23,9 +23,9 @@ spec:
               name: django-k8s-mnp-prod-env
         env:
           - name: PORT
-            value: "8002"
+            value: "8005"
         ports:
-        - containerPort: 8002
+        - containerPort: 8005
       imagePullSecrets:
         - name: sp-k8s   
 
@@ -40,6 +40,6 @@ spec:
     - name: http
       protocol: TCP
       port: 80
-      targetPort: 8002
+      targetPort: 8005
   selector:
     app: mnp-k8s-deployment
