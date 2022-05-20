@@ -5,7 +5,7 @@ metadata:
   labels:
     app: mnp-k8s-deployment
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: mnp-k8s-deployment
@@ -23,9 +23,9 @@ spec:
               name: django-k8s-mnp-prod-env
         env:
           - name: PORT
-            value: "8003"
+            value: "8002"
         ports:
-        - containerPort: 8003
+        - containerPort: 8002
       imagePullSecrets:
         - name: sp-k8s   
 
@@ -40,6 +40,6 @@ spec:
     - name: http
       protocol: TCP
       port: 80
-      targetPort: 8003
+      targetPort: 8002
   selector:
     app: mnp-k8s-deployment

@@ -82,7 +82,49 @@
   <!--sidebar end-->
   {% endblock %}
 
-  
+   <div class="content">
+    <div class="card">
+      <p>
+        {% block content %}
+        
+        {% endblock %}      
+        
+      {% if user.is_authenticated %}
+      {% block pagination %}
+
+      {% load my_tags %}
+
+      {% if is_paginated %}
+      {% if page_obj.has_previous %}
+      <a href="?{% param_replace page=1 %}">First</a>
+      {% if page_obj.previous_page_number != 1 %} &nbsp;|&nbsp;
+      <a href="?{% param_replace page=page_obj.previous_page_number %}">Previous</a>
+      {% endif %}
+      {% endif %}
+
+      Page {{ page_obj.number }} of {{ paginator.num_pages }}
+
+      {% if page_obj.has_next %}
+      {% if page_obj.next_page_number != paginator.num_pages %}
+      <a href="?{% param_replace page=page_obj.next_page_number %}">Next</a>
+      {% endif %}&nbsp;|&nbsp;
+      <a href="?{% param_replace page=paginator.num_pages %}">Last</a>
+      {% endif %}
+
+      &nbsp;&nbsp;&nbsp;&nbsp;Records: {{ page_obj.start_index }}&mdash;{{ page_obj.end_index }}
+      {% endif %}
+
+
+      {% endblock %}
+      {% endif %}
+      
+      </p>
+    
+    </div>
+  </div>
+
+
+
   <div class="footer">
     <p><span style="font-family:'Trebuchet MS';">
       Site developed by SP Technology <i class="fas fa-copyright"></i>2022.&nbsp;
