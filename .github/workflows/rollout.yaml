@@ -21,4 +21,4 @@ jobs:
           doctl kubernetes cluster kubeconfig save --expiry-seconds 600 ${{ env.CLUSTER_NAME }}
       - name: Run rollout on deployment
         run: |
-          kubectl rollout restart deployment/django-k8s-web-deployment
+          kubectl rollout restart deployment/mnp-k8s-deployment
