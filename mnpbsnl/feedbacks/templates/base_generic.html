@@ -27,7 +27,7 @@
 
 <body>
 
-  <input type="checkbox" id="check">
+TEST:  <input type="checkbox" id="check">
   <!--header area start-->
   <header>
     <!-- <div style="background-image: url({% static 'images/banner2.png' %});background-repeat: no-repeat;background-position: center;" > -->
@@ -36,13 +36,15 @@
     <label for="check">
       <i class="fas fa-sliders-h" id="sidebar_btn"></i>
     </label>
-    <div class="left_area">
+    <div class="right_area">
       <h3>MNP Feedback <span>Portal</span></h3>
     </div>
   </header>
   <!--header area end-->
 
   {% block sidebar %}
+  <a href="#"><i class="fa fa-home fa-fw" aria-hidden="true"></i><span>Outside block sidebar</span></a>
+  <a href="#"><i class="fas fa-home fa-fw" aria-hidden="true"></i><span>Outside block FAS sidebar</span></a>
   <!--mobile navigation bar start-->
   
   <!--mobile navigation bar end-->
@@ -66,7 +68,8 @@
 
 <div class="content"> 
   {% block content %}
-     
+<a href="#"><i class="fa fa-home fa-fw" aria-hidden="true"></i><span>Inside content sidebar</span></a>
+<a href="#"><i class="fas fa-home fa-fw" aria-hidden="true"></i><span>Inside content FAS sidebar</span></a>     
   {% endblock %}      
 </div>        
   
