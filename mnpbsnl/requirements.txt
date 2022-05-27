@@ -6,4 +6,5 @@ django-dotenv
 psycopg2-binary
 django-storages
 boto3
+django-cors-headers
 fontawesomefree==5.15.1 # added on 22-May-2022
