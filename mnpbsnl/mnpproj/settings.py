@@ -37,6 +37,9 @@ if ENV_ALLOWED_HOST:
     ALLOWED_HOSTS = [ ENV_ALLOWED_HOST ]
 
 """
+
+CORS_ALLOW_HEADERS = "access-control-allow-origin"
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -62,7 +65,20 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CORS_ALLOWED_ORIGINS = [
+    "http://64.225.84.172"
+]
+
 CORS_ORIGIN_ALLOW_ALL=True
+CORS_ALLOW_CREDENTIALS=True
+
+"""
+CORS_ORIGIN_WHITELIST = [
+    'localhost:80',
+    'localhost:8000',
+    '127.0.0.1:8000'
+]
+"""
 
 ROOT_URLCONF = 'mnpproj.urls'
 
