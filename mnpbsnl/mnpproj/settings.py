@@ -43,6 +43,7 @@ CORS_ALLOW_HEADERS = "access-control-allow-origin"
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -51,7 +52,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'feedbacks',
     'storages',
-    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -66,6 +66,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
+    "https://sgp1.digitaloceanspaces.com",
     "http://64.225.84.172"
 ]
 
