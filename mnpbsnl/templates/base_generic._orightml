@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="{% static 'css/all.css' %}" crossorigin="anonymous">
 
   <title>
-    {% block title %}MNP feedback portal{% endblock %}
+    {% block title %}BASE feedback portal{% endblock %}
   </title>
   {% block head %} {% endblock %} 
 </head>
