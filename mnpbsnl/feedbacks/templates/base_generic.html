@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  {% include 'feedbacks/includes/messages.html' %}
+
   {% load static %}
 
   <link rel="stylesheet" href="{% static 'css/w3.css' %}">
@@ -105,15 +105,6 @@
 
  
 
-{% if messages %}
-  <script>
-      {% for message in messages %}
-          $(document).ready(function () {
-              $('.toast').toast('show');
-          });
-      {% endfor %}
-  </script>
-  {% endif %} 
   
 
 </body>
