@@ -5,4 +5,9 @@ urlpatterns = [
     path('home/', home, name="home"),
     # Home
     path('', index, name='index'),
+    path('selcircle/', index, name='selcircle'),
+    path('feedback/', index, name='feedback'),
+    path('searchbycircle/', index, name='searchbycircle'),
+    path('searchbyssa', index, name='searchbyssa'),
+    path('searchsingle/', index, name='searchsingle'),   
 ]
